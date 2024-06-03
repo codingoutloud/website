@@ -1,2 +1,2 @@
 # website
-Plain old website. No support for accessibility yet.
+This website now supports accessibility features, including ARIA roles, alt attributes for images, and keyboard navigation.
