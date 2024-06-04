@@ -9,9 +9,10 @@ graph TD
         html["src/*.html (HTML files)"]
         css["src/*.css (CSS files)"]
         js["src/*.js (JavaScript that runs in the web browser)"]
-        favicon["src/favicon.ico (multiple icon/image formats and sizes)"]
+        favicon["src/favicon.ico (default icon)"]
+        favicons["src/favicons/*.png (multiple icon/image formats and sizes)"]
         robots_txt["src/robots.txt (directives for web crawlers)"]
-        security_txt["src/.well-knowns/security.txt (security policy information)"]
+        security_txt["src/.well-known/security.txt (security policy information)"]
     end
 
     subgraph VSCode ["VS Code Files - /.vscode"]
@@ -22,16 +23,17 @@ graph TD
     end
 
     subgraph Git["Git Files and Tools - /.git, /.gitignore"]
-        git_folder[".git/"]
-        gitignore[".gitignore (ignored files for Git)"]
+        git_folder[".git/* (file change tracking)"]
+        gitignore[".gitignore (untracked files)"]
     end
 
     subgraph GitHub["GitHub Config and Tools - /.github"]
         workflows_yml[".github/workflows/*.yml (CI/CD workflows)"]
     end
 
-    subgraph SWA["SWA - /src/staticwebapp.config.json"]
-        staticwebapp_config_json["src/staticwebapp.config.json (static web app configuration)"]
+    subgraph SWA["SWA - /src, /api"]
+        swa_config_json["src/staticwebapp.config.json (SWA config)"]
+        swa_cli_config_json["src/swa-cli.config.json (SWA CLI config)"]
         routes_json["src/routes.json (route configuration)"]
         api_code["api/* (code that runs in Azure Functions)"]
 
@@ -48,8 +50,14 @@ graph TD
 %%        babelrc[".babelrc (Babel configuration)"]
     end
 
+    subgraph Test
+        test_technology["{various test technologies}"]
+    end
+
+    Test --> Build
     Build --> SWA
-    SWA --> SWA_VSCodeExtensions --> GitHub
+    SWA --> GitHub
     GitHub --> Git
     Git --> VSCode
-    VSCode --> Web --> Docs
+    VSCode --> Web
+    Web --> Docs
