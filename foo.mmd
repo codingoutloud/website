@@ -20,11 +20,13 @@ graph TD
         settings_json[".vscode/settings.json (workspace settings)"]
         tasks_json[".vscode/tasks.json (automation tasks)"]
         extensions_json[".vscode/extensions.json (installed extensions)"]
+        click VSCode "https://doingazure.com"
     end
 
     subgraph Git["Git Files and Tools - /.git, /.gitignore"]
         git_folder[".git/* (file change tracking)"]
         gitignore[".gitignore (untracked files)"]
+        click VSCode "javascript:window.open('https://github.com', '_blank');"
     end
 
     subgraph GitHub["GitHub Config and Tools - /.github"]
@@ -45,9 +47,6 @@ graph TD
 
     subgraph Build["Build - npm tools and/or npx libraries"]
         package_json["package.json (project metadata and dependencies)"]
-%%        yarn_lock["yarn.lock (exact versions of dependencies)"]
-%%        webpack_config_js["webpack.config.js (Webpack configuration)"]
-%%        babelrc[".babelrc (Babel configuration)"]
     end
 
     subgraph Test
@@ -61,5 +60,3 @@ graph TD
     Git --> VSCode
     VSCode --> Web
     Web --> Docs
-
-click VSCode "https://example.com" "VSCode Files"
