@@ -1,17 +1,14 @@
 graph LR
-  subgraph AI
-    subgraph ML
-      subgraph DL
-        GenerativeAI
-      end
+subgraph AI ["Artificial Intelligence"]
+    subgraph ML ["Machine Learning"]
+        subgraph DL ["Deep Learning"]
+            subgraph GenAI ["Generative AI"]
+              subgraph NN ["Neural Networks"]
+                 foo["x"]
+              end
+            end
+        end
+        subgraph RL ["Reinforcement Learning"]
+        end
     end
-    subgraph RL
-    end
-  end
-
-
-%%  subgraph AI [Artificial Intelligence (AI)]
-%%    subgraph ML [Machine Learning (ML)]
-%%      subgraph DL [Deep Learning (DL)]
-%%        subgraph GenerativeAI [Generative AI]
-%%      subgraph RL [Reinforcement Learning (RL)]
+end
