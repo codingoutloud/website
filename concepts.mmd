@@ -1,15 +1,5 @@
 %% create mermaid diagram that has a circle with a venn diagram within it - the outer circle is labeled "devX" - and the venn diagram has three overlapping/intersecting circles with these labels: "Security", "Azure", and "AI" - with each overlapping the others, and also an overlapping of all three. The overlapping of all three is labeled "Bill" and the overlap of Azure and AI is "AzureAI"
 
-graph TD
-    A[devX] --> B[Security]
-    A --> C[Azure]
-    A --> D[AI]
-    B --> E[Bill]
-    C --> E
-    D --> E
-    C --> F[AzureAI]
-    D --> F
-
 graph LR
 subgraph AI ["Security"]
    subgraph ML ["DevX"]
